@@ -225,10 +225,10 @@ namespace Net.Pkcs11Interop.Tests.HighLevelAPI
         /// </summary>
         private static class NativeMethods
         {
-            [DllImport("__Internal", EntryPoint = "C_GetUnmanagedStructSizeList", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("pkcs11", EntryPoint = "C_GetUnmanagedStructSizeList", CallingConvention = CallingConvention.Cdecl)]
             internal static extern uint C_GetUnmanagedStructSizeList4x(uint[] sizeList, ref uint count);
 
-            [DllImport("__Internal", EntryPoint = "C_GetUnmanagedStructSizeList", CallingConvention = CallingConvention.Cdecl)]
+            [DllImport("pkcs11", EntryPoint = "C_GetUnmanagedStructSizeList", CallingConvention = CallingConvention.Cdecl)]
             internal static extern ulong C_GetUnmanagedStructSizeList8x(ulong[] sizeList, ref ulong count);
         }
 
