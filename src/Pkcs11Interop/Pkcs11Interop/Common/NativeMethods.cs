@@ -131,7 +131,7 @@ namespace Net.Pkcs11Interop.Common
         /// Human readable string describing the most recent error that occurred from dlopen(), dlsym() or dlclose() since the last call to dlerror().
         /// </summary>
         /// <returns>Human readable string describing the most recent error or NULL if no errors have occurred since initialization or since it was last called.</returns>
-        [DllImport("libdl", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("/usr/lib/libSystem.dylib", CallingConvention = CallingConvention.Cdecl)]
         internal static extern IntPtr dlerror();
         
         /// <summary>
@@ -141,10 +141,10 @@ namespace Net.Pkcs11Interop.Common
         /// <param name='flag'>RTLD_LAZY for lazy function call binding or RTLD_NOW immediate function call binding.</param>
         /// <returns>Handle for the dynamic library if successful, IntPtr.Zero otherwise.</returns>
 #if SILVERLIGHT
-        [DllImport("libdl", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false)]
+        [DllImport("/usr/lib/libSystem.dylib", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false)]
         internal static extern IntPtr dlopen(string filename, int flag);
 #else
-        [DllImport("libdl", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        [DllImport("/usr/lib/libSystem.dylib", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         internal static extern IntPtr dlopen(string filename, int flag);
 #endif
 
@@ -154,11 +154,11 @@ namespace Net.Pkcs11Interop.Common
         /// <param name="path">Library path.</param>
         /// <returns>True if library is compatible.  If library is not compatible, it returns false and sets an error string that can be examined with dlerror.</returns>
 #if SILVERLIGHT
-        [DllImport("libdl", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false)]
+        [DllImport("/usr/lib/libSystem.dylib", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false)]
         [return: MarshalAs(UnmanagedType.U1)]
         internal static extern bool dlopen_preflight(string path);
 #else
-        [DllImport("libdl", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        [DllImport("/usr/lib/libSystem.dylib", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         [return: MarshalAs(UnmanagedType.U1)]
         internal static extern bool dlopen_preflight(string path);
 #endif
@@ -168,7 +168,7 @@ namespace Net.Pkcs11Interop.Common
         /// </summary>
         /// <param name='handle'>Handle for the dynamic library.</param>
         /// <returns>Returns 0 on success, and nonzero on error.</returns>
-        [DllImport("libdl", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("/usr/lib/libSystem.dylib", CallingConvention = CallingConvention.Cdecl)]
         internal static extern int dlclose(IntPtr handle);
         
         /// <summary>
@@ -178,10 +178,10 @@ namespace Net.Pkcs11Interop.Common
         /// <param name='symbol'>Name of symbol that should be addressed.</param>
         /// <returns>Returns 0 on success, and nonzero on error.</returns>
 #if SILVERLIGHT
-        [DllImport("libdl", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false)]
+        [DllImport("/usr/lib/libSystem.dylib", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false)]
         internal static extern IntPtr dlsym(IntPtr handle, string symbol);
 #else
-        [DllImport("libdl", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        [DllImport("/usr/lib/libSystem.dylib", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         internal static extern IntPtr dlsym(IntPtr handle, string symbol);
 #endif
 
