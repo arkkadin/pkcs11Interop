@@ -1,2 +1,4 @@
 language: csharp
 solution: Pkcs11Interop.sln
+os: windows
+
