@@ -6,8 +6,8 @@ variables:
   DEPLOY_FOLDER: 'P:\Projects\YourApp\Builds'
   
   NUGET_PATH: 'C:\NuGet\nuget.exe'
-  MSBUILD_PATH: 'C:\Program Files (x86)\MSBuild\14.0\Bin\msbuild.exe'
-  NUNIT_PATH: 'C:\Program Files (x86)\NUnit.org\nunit-console\nunit3-console.exe'
+  MSBUILD_PATH: 'Pkcs11Interop\build\build-net40.bat --with-tests'
+  NUNIT_PATH: 'Pkcs11Interop\src\Pkcs11Interop\packages\NUnit.2.6.4\lib\nunit.framework.dll'
 
 stages:
   - build
@@ -19,7 +19,7 @@ build_job:
   only:
     - tags # the build process will only be started by git tag commits
   script:
-    - '& "$env:NUGET_PATH" restore' # restore Nuget dependencies
+  
     - '& "$env:MSBUILD_PATH" /p:Configuration=Release' # build the project
   artifacts:
     expire_in: 1 week # save gitlab server space, we copy the files we need to deploy folder later on
@@ -33,7 +33,7 @@ test_job:
   only:
     - tags
   script:
-    - '& "$env:NUNIT_PATH" ".\$env:TEST_FOLDER\Tests.dll"' # running NUnit tests
+    - '& "$env:NUNIT_PATH" ".\$env:TEST_FOLDER\Pkcs11InteropTests.dll"' # running NUnit tests
   artifacts:
     expire_in: 1 week # save gitlab server space, we copy the files we need to deploy folder later on
     paths:
@@ -62,5 +62,3 @@ deploy_job:
     - build_job
     - test_job
   
-
-
