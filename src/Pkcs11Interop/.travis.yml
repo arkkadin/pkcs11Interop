@@ -1,10 +1,10 @@
 language: csharp
-solution: Pkcs11Interop/src/Pkcs11Interop/Pkcs11Interop.sln
+solution: Pkcs11Interop.sln
 before_install:
   - sudo apt-get install nunit-console
 before_script:
-  - nuget restore Pkcs11Interop/src/Pkcs11Interop/Pkcs11Interop.sln
+  - nuget restore Pkcs11Interop.sln
 after_script:
-  - nunit-console Pkcs11Interop/src/Pkcs11Interop/Pkcs11InteropTests/bin/Release/Pkcs11InteropTests.dll
+  - nunit-console /Pkcs11InteropTests/bin/Release/Pkcs11InteropTests.dll
   
 
