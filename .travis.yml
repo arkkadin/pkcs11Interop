@@ -1,5 +1,5 @@
 language: csharp
-solution: Pkcs11Interop.sln
+solution: /src/Pkcs11Interop/Pkcs11Interop.sln
 
 matrix:
   inclue:
