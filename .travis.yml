@@ -1,6 +1,4 @@
 language: csharp
-solution: /src/Pkcs11Interop/Pkcs11Interop.sln
-
 matrix:
   inclue:
     - dotnet: 4.0
