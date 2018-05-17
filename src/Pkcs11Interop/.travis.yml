@@ -1,4 +1,6 @@
 language: csharp
+script:
+  - cd src/Pkcs11Interop
 solution: Pkcs11Interop.sln
 before_install:
   - sudo apt-get install nunit-console
