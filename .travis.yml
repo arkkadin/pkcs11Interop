@@ -3,8 +3,8 @@ solution: Pkcs11Interop.sln
 
 before_install:
   - sudo apt-get install nunit-console
+  - cd /src/Pkcs11Interop
 before_script:
-  - cd src\Pkcs11Interop
   - nuget restore Pkcs11Interop.sln
 after_script:
   - nunit-console /Pkcs11InteropTests/bin/Release/Pkcs11InteropTests.dll
