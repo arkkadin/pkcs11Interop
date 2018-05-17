@@ -1,4 +1,12 @@
 language: csharp
 solution: Pkcs11Interop.sln
-os: windows
+
+matrix:
+  inclue:
+    - dotnet: 4.0
+      mono: none
+    - mono: latest 
+    
+
+
 
